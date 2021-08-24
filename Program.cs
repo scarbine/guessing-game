@@ -53,6 +53,14 @@ namespace guessing_game
             else
             {
                 Console.WriteLine($"{userGuess} is not it!");
+                if(userGuess > secrectNumber)
+                {
+                    Console.WriteLine("Your guess was too high.");
+                }
+                else
+                {
+                    Console.WriteLine("Your guess was too low.");
+                }
             }
             }
         }
