@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace guessing_game
 {
@@ -7,7 +8,8 @@ namespace guessing_game
         static void Main(string[] args)
         {
             // vars
-            int secrectNumber = 42;
+            Random rnd = new Random();
+            int secrectNumber = rnd.Next(1,100);
             int userGuess = 0;
             int counter = 0;
             int totalRounds = 4;
@@ -22,7 +24,7 @@ namespace guessing_game
                 roundsLeft--;
                 if(userGuess == secrectNumber)
                 {
-                    Console.WriteLine($"You guessed it in round: {currentRound}");
+                    Console.WriteLine($"You guessed it in round: {(currentRound -1)}");
                    
                     break;
                 }
@@ -38,6 +40,7 @@ namespace guessing_game
             void Game()
             {
             Console.WriteLine($"Round {currentRound}");
+            // Console.WriteLine($"Secrect Number {secrectNumber}");
             Console.WriteLine($"Can you guess the secrect number? You have {roundsLeft} rounds left");
             string userGuessString = Console.ReadLine();
             int userGuessInt = int.Parse(userGuessString);
