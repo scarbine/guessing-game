@@ -6,11 +6,29 @@ namespace guessing_game
     {
         static void Main(string[] args)
         {
+            // vars
+            int secrectNumber = 42;
+
+
+            Game();
+
+
+
+
+            void Game()
+            {
             Console.WriteLine("Can you guess the secrect number?");
             string userGuessString = Console.ReadLine();
             int userGuessInt = int.Parse(userGuessString);
-            Console.WriteLine($" You guessed # {userGuessInt}");
-
+            if(secrectNumber == userGuessInt)
+            {
+            Console.WriteLine($" You guessed it!");
+            }
+            else
+            {
+                Console.WriteLine("Not it!");
+            }
+            }
         }
     }
 }
