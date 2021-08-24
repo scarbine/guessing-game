@@ -8,12 +8,26 @@ namespace guessing_game
         {
             // vars
             int secrectNumber = 42;
+            int userGuess = 0;
+            int counter = 0;
+            bool isSame = false;
+
+            while(counter < 4){
+                Game();
+                counter++;
+                if(userGuess == secrectNumber)
+                {
+                    Console.WriteLine("You guessed it");
+                    break;
+                }
+            }
 
 
-            Game();
-
-
-
+            
+            if(!isSame)
+            {
+                Console.WriteLine("Sorry you have run out of turns!");
+            }
 
             void Game()
             {
@@ -22,7 +36,9 @@ namespace guessing_game
             int userGuessInt = int.Parse(userGuessString);
             if(secrectNumber == userGuessInt)
             {
-            Console.WriteLine($" You guessed it!");
+            userGuess = userGuessInt;
+            isSame = true;
+            return;
             }
             else
             {
